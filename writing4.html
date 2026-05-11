@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muted Taizhou Dialect — Sirui Zhong</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Source Serif 4', Georgia, serif;
+            background: #faf6f0;
+            color: #2d2a26;
+            line-height: 1.9;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background:
+                radial-gradient(ellipse at 10% 20%, rgba(212,184,150,0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 90% 80%, rgba(180,160,130,0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c4a882' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .back-link {
+            position: fixed;
+            top: 24px;
+            left: 24px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #a08060;
+            text-decoration: none;
+            background: rgba(250,246,240,0.92);
+            padding: 8px 16px;
+            border-radius: 20px;
+            backdrop-filter: blur(8px);
+            transition: color .2s, transform .2s;
+            z-index: 100;
+            border: 1px solid rgba(200,175,140,0.2);
+        }
+        .back-link:hover { color: #5a4a3a; transform: translateY(-1px); }
+
+        .article-header {
+            position: relative;
+            z-index: 1;
+            padding: 100px 20px 50px;
+            text-align: center;
+            border-bottom: 1px solid rgba(200,175,140,0.2);
+        }
+        .section-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #b08050;
+            margin-bottom: 20px;
+        }
+        .article-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 44px;
+            font-weight: 700;
+            color: #2d2a26;
+            margin-bottom: 18px;
+            font-style: italic;
+        }
+        .byline {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #999;
+            margin-top: 10px;
+        }
+        .dateline {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            color: #aaa;
+            margin-top: 6px;
+        }
+
+        .article-body {
+            position: relative;
+            z-index: 1;
+            max-width: 660px;
+            margin: 50px auto 0;
+            padding: 50px 60px 100px;
+            border-left: 1px solid rgba(196,160,112,0.12);
+            border-right: 1px solid rgba(196,160,112,0.12);
+        }
+
+        .article-body p {
+            font-size: 16.5px;
+            line-height: 2;
+            margin-bottom: 18px;
+            color: #3a3530;
+        }
+
+        .article-body .pull-quote {
+            font-size: 17px;
+            font-weight: 600;
+            color: #5a4030;
+            border-left: 3px solid #c4a070;
+            padding-left: 18px;
+            margin: 32px 0;
+            line-height: 1.8;
+        }
+
+        .article-body figure {
+            margin: 36px -10px;
+        }
+        .article-body figure img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .article-body figure figcaption {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: #999;
+            margin-top: 10px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .article-body .drop-cap::first-letter {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            float: left;
+            line-height: 0.8;
+            margin-right: 8px;
+            margin-top: 8px;
+            color: #b08050;
+            font-weight: 700;
+        }
+
+        .separator {
+            text-align: center;
+            margin: 40px 0;
+            color: #c4a070;
+            letter-spacing: 6px;
+            font-size: 14px;
+        }
+
+        .article-footer {
+            text-align: center;
+            padding: 40px 20px 80px;
+            position: relative;
+            z-index: 1;
+        }
+        .footer-ornament {
+            font-size: 18px;
+            color: #c4a070;
+            letter-spacing: 8px;
+        }
+
+        @media(max-width: 600px) {
+            .article-header h1 { font-size: 30px; }
+            .article-header { padding: 70px 16px 40px; }
+            .article-body { padding: 30px 24px 80px; }
+            .article-body p { font-size: 15.5px; }
+        }
+    </style>
+</head>
+<body>
+    <a class="back-link" href="index.html?show=writing">← Back to Works</a>
+
+    <div class="article-header">
+        <div class="section-label">Feature</div>
+        <h1>Muted Taizhou Dialect</h1>
+        <div class="byline">By Sirui Zhong</div>
+        <div class="dateline">Dec. 20, 2025 · Taizhou, China</div>
+    </div>
+
+    <div class="article-body">
+        <p class="drop-cap">"One bowl of vegetable noodles," Yuntong Dai said in Mandarin at Tiger Noodle Shop in Kouan town, Taizhou. It was lunchtime, with steam filling the small shop.</p>
+
+        <p>The owner, in her 60s, only offered an awkward smile and looked at Dai, hesitantly waving her hand.</p>
+
+        <p>Realizing she did not understand, Dai grew anxious. Leaning over the counter, she stretched out her right hand and earnestly pointed at the menu behind the owner. Seconds later, the owner caught on and replied in Taizhou dialect, "Oh, vegetable noodles. I'll make them for you right away."</p>
+
+        <p>The owner is a native of Taizhou, hardly understanding a word of Mandarin. Dai, also born in Taizhou, had long since lost the ability to fully express her needs in her hometown dialect. Despite hailing from the same city, the only way they could communicate was through gestures.</p>
+
+        <figure>
+            <img src="writing4/writing4_img01.png" alt="Tiger Noodle Shop owner">
+            <figcaption>Yihong Chen, 62, owner of Tiger Noodle Shop, prepares noodles for customers. Photo by Sirui Zhong.</figcaption>
+        </figure>
+
+        <p>Such mismatches are not isolated cases. As the nation continues promoting Mandarin in education, media and public services, it has gradually become the primary communication language for younger generations. Nowadays, many young people may still understand their local dialects, but struggle to express themselves fully in those languages.</p>
+
+        <div class="separator">· · ·</div>
+
+        <p>During the New Year's Eve dinner, Le'an Lin sat on one side of the table. Dishes filled the table while the elderly clinked glasses and chatted in the Taizhou dialect about the changes of the past year. The conversation flowed naturally among relatives.</p>
+
+        <p>Lin lowered her head to pick up food, occasionally nodding in response. A relative turned to her and asked about her life in Suzhou. Lin paused for a moment, replying briefly in Mandarin.</p>
+
+        <p>After a short silence, someone politely responded, "You must be working hard, kid." The conversation quickly shifted back to the local dialect. Lin lowered her head again and didn't interject further.</p>
+
+        <p class="pull-quote">"I could clearly sense it. The moment I spoke Mandarin, the atmosphere instantly turned cold, becoming very formal and official," Lin recalled.</p>
+
+        <p>Lin was born in Taizhou and moved to Suzhou with her parents at the age of 10. Now a junior in university, she has lived in Suzhou for a full decade.</p>
+
+        <p>When she first arrived in Suzhou, she worried about being isolated due to not understanding the local dialect. However, she soon realized that this concern never materialized — whether it was presentations, group discussions, or casual chats among students, Mandarin was almost exclusively used in both formal and informal settings.</p>
+
+        <p>Lin said, "That feeling was actually quite reassuring." Mandarin helped her smoothly fit in on campus life and avoid the barriers that language differences might have created.</p>
+
+        <p>This sense of security is one of the most vivid feelings many people experience in a Mandarin-speaking environment.</p>
+
+        <p>For a long time, Mandarin has been the primary language of instruction and communication within China's education system. On Oct. 31, 2000, the Law of the People's Republic of China on the Standard Spoken and Written Chinese Language was officially promulgated. It established Mandarin as the national common language and promoted its use in education, media, and public affairs.</p>
+
+        <p>Driven by this policy, significant progress has been made in the popularization of Mandarin. According to meeting records from the Ministry of Education of the People's Republic of China in 2022, the nationwide penetration rate of Mandarin exceeded 80%. Mandarin has reduced the costs of cross-regional communication and promoted educational equity and social mobility.</p>
+
+        <p>However, for Lin, this convenience has not come without its price.</p>
+
+        <p>"When others introduce themselves, they can say 'I come from such-and-such place,'" Lin said, "but I don't actually know where I belong."</p>
+
+        <p>She admitted that she is neither fluent in Taizhou dialect nor has she truly mastered the Suzhou dialect. On a linguistic level, it is difficult for her to feel a strong sense of belonging to either city.</p>
+
+        <p class="pull-quote">Associate Professor Pawel Zygadlo from the Department of China Studies at Xi'an Jiaotong-Liverpool University pointed out that an individual's identity is strongly linked to the language they speak. The weakening of dialects can affect a person's sense of belonging to local culture. "What's unfortunate is that, for many young people, language is merely a functional tool for communication."</p>
+
+        <p>The Taizhou dialect, a branch of the Jianghuai Mandarin, was once the primary language for daily communication among local residents. However, today, Mandarin has gradually replaced the dialect as the mainstream language in public spaces, schools, and among young people.</p>
+
+        <p>Looking across the country, this shift is not an isolated phenomenon. As a multilingual nation, China has ten major dialect groups. According to a 2024 report by People's Daily, with the promotion of Mandarin and increased population mobility, in three major dialect regions, only less than half of teenagers aged 6–20 is proficient in their local dialects.</p>
+
+        <figure>
+            <img src="writing4/writing4_img02.png" alt="Infographic on dialect decline">
+        </figure>
+
+        <div class="separator">· · ·</div>
+
+        <p>Noticing the decline of their hometown dialect, some young people have begun trying new ways to preserve it.</p>
+
+        <p>The 27-year-old short video creator Tang Xiao Zheng documents his daily life in the Taizhou dialect on Douyin, with his videos accumulating nearly 450,000 likes. In the comments section, netizens from different regions leave messages in Taizhou dialect, sharing expressions from their own memories of home.</p>
+
+        <p>"Every time I see netizens from different IPs typing in the Taizhou dialect, I feel really warm," Tang said. "It makes me feel that distance means so little when friendship means so much."</p>
+
+        <p>Xiaoyue Zheng, Lin's mother, is also preparing to join this effort. "Actually, the Taizhou dialect is quite beautiful. If it were to truly disappear one day, it would be a real shame." Zheng said. She has purchased filming equipment and is currently planning her video content.</p>
+
+        <figure>
+            <img src="writing4/writing4_img03.jpg" alt="Xiaoyue Zheng with tripod">
+            <figcaption>Xiaoyue Zheng, 47, familiarizes herself with a tripod at home. This is her first time using professional photography equipment. Photo by Sirui Zhong.</figcaption>
+        </figure>
+
+        <p>Behind the Taizhou dialect, lies a system of expression that is difficult for outsiders to fully grasp: the cadence of its tones, the metaphors in its vocabulary, and the emotional expressions deeply tied to local ways of life.</p>
+
+        <p>In Taizhou, the future is called "qi zhao", blending hopeful expectations for what lies ahead into the language. To describe someone as "spirited," they say "shen qi liu guo", a phrase originating from the Warring States period when Qin Su served as the chancellor of six states, embodying an aura of boundless confidence and grandeur. And children are affectionately referred to as "guai guai rou", meaning cherished, well-behaved little ones, which is a term filled with tenderness and care.</p>
+
+        <p>Last year, Taizhou government organized dialect-related activities in some schools and communities.</p>
+
+        <p>It was at a community event that Zheng first realized the dialect was being treated as "something needs protection."</p>
+
+        <p>"I don't know if such activities can really make a difference," she said. "But at the very least, it makes me feel that there's still a chance for the Taizhou dialect to survive."</p>
+
+        <div class="separator">· · ·</div>
+
+        <p>The noodle shop gradually filled with more people. Dai carried her bowl of vegetable noodles and took a seat in the corner.</p>
+
+        <p>The steaming soup sent up a cloud of vapor that briefly obscured her face. She lowered her head to eat the noodles — ordered in Mandarin and paid for in Mandarin.</p>
+
+        <p>"Nowadays, I only know a few very simple Taizhou phrases," she said. "Sometimes I try to learn from short videos, but my pronunciation isn't quite right."</p>
+
+        <p>After finishing her meal, she stood up and left the noodle shop. Next time she returns, she is not sure whether she will be able to order a bowl of noodles clearly in her hometown dialect.</p>
+    </div>
+
+    <div class="article-footer">
+        <div class="footer-ornament">◆ ◇ ◆</div>
+    </div>
+</body>
+</html>

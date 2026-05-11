@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随笔 | 张雪峰与哈贝马斯：痴人遇上痴人</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Noto Serif SC', 'Songti SC', serif;
+            background: #faf6f0;
+            color: #2d2a26;
+            line-height: 2;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background:
+                radial-gradient(ellipse at 10% 20%, rgba(212,184,150,0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 90% 80%, rgba(180,160,130,0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c4a882' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .back-link {
+            position: fixed;
+            top: 24px;
+            left: 24px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #a08060;
+            text-decoration: none;
+            background: rgba(250,246,240,0.92);
+            padding: 8px 16px;
+            border-radius: 20px;
+            backdrop-filter: blur(8px);
+            transition: color .2s, transform .2s;
+            z-index: 100;
+            border: 1px solid rgba(200,175,140,0.2);
+        }
+        .back-link:hover { color: #5a4a3a; transform: translateY(-1px); }
+
+        .article-header {
+            position: relative;
+            z-index: 1;
+            padding: 100px 20px 50px;
+            text-align: center;
+            border-bottom: 1px solid rgba(200,175,140,0.2);
+        }
+        .section-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #b08050;
+            margin-bottom: 20px;
+        }
+        .article-header h1 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #2d2a26;
+            letter-spacing: 1px;
+        }
+        .standfirst {
+            font-size: 15px;
+            font-style: italic;
+            color: #6a5a4a;
+            max-width: 480px;
+            margin: 20px auto 0;
+            line-height: 1.8;
+        }
+
+        .article-body {
+            position: relative;
+            z-index: 1;
+            max-width: 660px;
+            margin: 50px auto 0;
+            padding: 50px 60px 100px;
+            border-left: 1px solid rgba(196,160,112,0.12);
+            border-right: 1px solid rgba(196,160,112,0.12);
+        }
+
+        .section {
+            margin-bottom: 52px;
+        }
+        .section-number {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            color: #b08050;
+            text-align: center;
+            margin-bottom: 28px;
+            letter-spacing: 4px;
+        }
+        .section p {
+            font-size: 16.5px;
+            line-height: 2.1;
+            margin-bottom: 18px;
+            color: #3a3530;
+            text-align: justify;
+        }
+        .section .quote {
+            font-style: italic;
+            color: #6a5a4a;
+            border-left: 3px solid #c4a070;
+            padding-left: 18px;
+            margin: 28px 0;
+            font-size: 16px;
+            line-height: 1.9;
+        }
+        .section .dialogue {
+            color: #5a4a3a;
+            margin-bottom: 10px;
+        }
+
+        .drop-cap::first-letter {
+            font-size: 3.2em;
+            float: left;
+            line-height: 0.85;
+            margin-right: 8px;
+            margin-top: 6px;
+            color: #b08050;
+            font-weight: 700;
+        }
+
+        .article-footer {
+            text-align: center;
+            padding: 40px 20px 80px;
+            position: relative;
+            z-index: 1;
+        }
+        .footer-ornament {
+            font-size: 18px;
+            color: #c4a070;
+            letter-spacing: 8px;
+        }
+
+        @media(max-width: 600px) {
+            .article-header { padding: 70px 16px 40px; }
+            .article-header h1 { font-size: 22px; }
+            .article-body { padding: 30px 24px 80px; }
+            .section p { font-size: 15.5px; }
+        }
+    </style>
+</head>
+<body>
+    <a class="back-link" href="index.html?show=writing">← 返回作品列表</a>
+
+    <div class="article-header">
+        <div class="section-label">随笔 · Personal Essay</div>
+        <h1>张雪峰与哈贝马斯：痴人遇上痴人</h1>
+        <p class="standfirst">现实主义的痴与理想主义的痴，都是一种许可</p>
+    </div>
+
+    <div class="article-body">
+        <div class="section">
+            <p class="drop-cap">昨日刷到张雪峰心脏骤停的消息，第一反应是愕然。</p>
+            <p>转头告诉舍友，反应亦是愕然。</p>
+            <p class="dialogue">"啊，我们刚刚才从独墅湖医院的方向回来。"</p>
+            <p class="dialogue">"哪看到的，给我看看。"</p>
+            <p class="dialogue">"我靠。"</p>
+            <p class="dialogue">"小道消息说抢救无效啊。"</p>
+            <p>接下来的几十分钟里，我们看着他的小红书和抖音头像由彩色转为黑白，又由黑白转为彩色。最终在九点四十分左右，等来了官方发布的讣告。</p>
+        </div>
+
+        <div class="section">
+            <div class="section-number">1</div>
+            <p>长久以来，我并不喜欢张雪峰。</p>
+            <p>中学时期偶尔会刷到他的直播切片。视频里那个将考生量化为分数，说话斩钉截铁，有时甚至厉声厉色、不容家长反驳的人，很难让我喜欢上。</p>
+            <p>后来进入大学，我学了传播学，新闻与传播的那个传播。按照张雪峰"把他打晕都不要让他学新闻"的说法，我应该被家里人打个半晕。</p>
+            <p>但是在两年半的时间里，我学得很开心。传播学就像一把利剑，把媒体在人们眼前制造的迷雾通通劈开，让人得以不断接近那个远方的真相。</p>
+            <p>于是我更加不喜欢张雪峰。</p>
+            <p>"后真相时代的批判性思维"，这么重要的能力，难道称不上他口中的"永久性风口"吗？怎么又被他自己一棒子打死了？这个被无数家长奉为圭臬的人，是不是被过分神化了？</p>
+        </div>
+
+        <div class="section">
+            <div class="section-number">2</div>
+            <p>高三时，学校请张雪峰开办了一场讲座。这是短视频外，我与他唯一的交集。</p>
+            <p>期间他向我们提及自己的行程安排。"满满当当"，这是我至今还存留着的印象。几小时直播，接着是会议、又一场会议、再一场会议，然后乘高铁辗转外地，再开一场直播。吃饭、睡眠与休息的时间则被被迫压缩。</p>
+            <p>"图什么呀？要赚这么多钱吗？"当时的我坐在台下，看着台上手舞足蹈、慷慨激昂的张雪峰，感到不解。</p>
+            <p>"但是，我每周都会抽出一天时间陪我女儿。没有工作，就是陪她。"他突然话锋一转。</p>
+            <p>张雪峰的女儿在我高中隔壁的小学读书，喜欢住酒店，活泼可爱，自信大方。</p>
+            <p>女儿名叫张姩菡。"姩"意为美女，"菡"代指荷花，中通外直，遗世独立。一个寄托了浓浓爱意的名字。</p>
+            <p>这些都是张雪峰在讲座上告诉我们的。</p>
+            <p>正因如此，才在看到讣告时感到惋惜。</p>
+            <p>惋惜张姩菡11岁就失去了父亲，也遗憾张雪峰为那么多家庭指明了出路，却没有机会见证自己孩子的成长。</p>
+            <p>让张雪峰如此拼命的原因大概有很多，其中异常重要的一个好像渐渐显出了轮廓。</p>
+            <p>西汉刘向在《触龙说赵太后》中写：父母之爱子，则为之计深远。张雪峰又何尝不是？这十年时间，他也早早为孩子做好了规划，用尽全力去托举她。</p>
+            <p>佛教讲，人有三垢，"贪、嗔、痴"。"痴"意为痴迷，痴迷于一种执念。</p>
+            <p>芸芸众生摸爬滚打，追求的也许只是一个温暖的小家。或许张雪峰也是一样，努力追寻的也只是家庭和美、儿女康健的执念。</p>
+        </div>
+
+        <div class="section">
+            <div class="section-number">3</div>
+            <p>他的离世让我想起一位也在不久前去世的泰斗——哈贝马斯。</p>
+            <p>如果说，张雪峰是代表无数普通人的现实主义的痴人，那么哈贝马斯则毫无疑问是理想主义的痴人。</p>
+            <p>初次接触哈老爷子，是在《刘擎现代西方思想讲义》一书中，只隐约记得这是一个崇尚理性的人。</p>
+            <p>再后来，是在《数字媒体与传播导论》这门课上，老师向我们介绍他的公共领域。</p>
+            <p>哈贝马斯认为，为了保护和推动政治民主，应该有一个全然开放、理性、互相尊重的讨论空间，所有公民都可以参与其中，所有人都可以发表自己的看法。</p>
+            <p class="quote">"这也太乌托邦了吧。"我高亮了这个概念，在旁边打了这么一句话。</p>
+            <p>在这个政治两极化、仇恨言论满天飞、高度情绪化的社交媒体时代，居然有人还在指望别人好好说话？更妄论一起坐下来心平气和地谈论政治问题了。再者，这样的公共空间对参与者的要求太高了，几乎默认了所有人都受过高等教育、都密切关注政治动向、都愿意建言献策。哪有这样的桃花源存在？</p>
+            <p>说来好笑，因为公共领域这样过分理想的概念，我曾经以为哈贝马斯早已过世，根本没有体验过如今的互联网生活。</p>
+            <p>哈老爷子似乎也知道自身理论的局限，也在不断努力让理性讨论在现实制度中落地。只是在很多人看来，这种努力依旧不切实际。</p>
+            <p>用瓦叔的话来说，哈贝马斯抱怨各种公共领域不合他的意，却又没有办法为已经堕落的公共领域找到一条新路。只是顽固的坚持着他的好好说话就能让世界更美好的理想，就像那种动画的男主一样。</p>
+        </div>
+
+        <div class="section">
+            <div class="section-number">4</div>
+            <p>张雪峰也好，哈贝马斯也罢，我很感谢有他们这样的人存在。</p>
+            <p>他们的存在就是一种许可，让我知道我完全可以坚持一些旁人无法理解的事情。无论是为了月亮在六便士中挣扎，还是在一个看似不合时宜的时代坚持自己的信念，什么都可以。</p>
+            <p class="quote">莫说相公痴，更有痴似相公者。</p>
+        </div>
+    </div>
+
+    <div class="article-footer">
+        <div class="footer-ornament">◆ ◇ ◆</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Her Ascent — Sirui Zhong</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Source Serif 4', Georgia, serif;
+            background: #faf6f0;
+            color: #2d2a26;
+            line-height: 1.9;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background:
+                radial-gradient(ellipse at 10% 20%, rgba(212,184,150,0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 90% 80%, rgba(180,160,130,0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c4a882' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .back-link {
+            position: fixed;
+            top: 24px;
+            left: 24px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #a08060;
+            text-decoration: none;
+            background: rgba(250,246,240,0.92);
+            padding: 8px 16px;
+            border-radius: 20px;
+            backdrop-filter: blur(8px);
+            transition: color .2s, transform .2s;
+            z-index: 100;
+            border: 1px solid rgba(200,175,140,0.2);
+        }
+        .back-link:hover { color: #5a4a3a; transform: translateY(-1px); }
+
+        /* Header */
+        .article-header {
+            position: relative;
+            z-index: 1;
+            padding: 100px 20px 50px;
+            text-align: center;
+            border-bottom: 1px solid rgba(200,175,140,0.2);
+        }
+        .section-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #b08050;
+            margin-bottom: 20px;
+        }
+        .article-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #2d2a26;
+            margin-bottom: 18px;
+            font-style: italic;
+        }
+        .standfirst {
+            font-family: 'Source Serif 4', serif;
+            font-size: 17px;
+            font-style: italic;
+            color: #6a5a4a;
+            max-width: 540px;
+            margin: 0 auto 20px;
+            line-height: 1.7;
+        }
+        .byline {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #999;
+            margin-top: 24px;
+        }
+
+        /* Body */
+        .article-body {
+            position: relative;
+            z-index: 1;
+            max-width: 660px;
+            margin: 50px auto 0;
+            padding: 50px 60px 100px;
+            border-left: 1px solid rgba(196,160,112,0.12);
+            border-right: 1px solid rgba(196,160,112,0.12);
+        }
+
+        .article-body p {
+            font-size: 16.5px;
+            line-height: 2;
+            margin-bottom: 18px;
+            color: #3a3530;
+        }
+
+        .article-body .subheading {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #2d2a26;
+            margin: 48px 0 24px;
+            text-align: center;
+        }
+
+        .article-body .pull-quote {
+            font-size: 17px;
+            font-weight: 600;
+            color: #5a4030;
+            border-left: 3px solid #c4a070;
+            padding-left: 18px;
+            margin: 32px 0;
+            line-height: 1.8;
+        }
+
+        .article-body figure {
+            margin: 36px -10px;
+        }
+        .article-body figure img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .article-body figure figcaption {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: #999;
+            margin-top: 10px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .article-body .drop-cap::first-letter {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            float: left;
+            line-height: 0.8;
+            margin-right: 8px;
+            margin-top: 8px;
+            color: #b08050;
+            font-weight: 700;
+        }
+
+        .article-footer {
+            text-align: center;
+            padding: 40px 20px 80px;
+            position: relative;
+            z-index: 1;
+        }
+        .footer-ornament {
+            font-size: 18px;
+            color: #c4a070;
+            letter-spacing: 8px;
+        }
+
+        @media(max-width: 600px) {
+            .article-header h1 { font-size: 32px; }
+            .article-header { padding: 70px 16px 40px; }
+            .article-body { padding: 30px 18px 80px; }
+            .article-body p { font-size: 15.5px; }
+            .article-body .subheading { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <a class="back-link" href="index.html?show=writing">← Back to Works</a>
+
+    <div class="article-header">
+        <div class="section-label">Lifestyle / Leisure</div>
+        <h1>Her Ascent</h1>
+        <p class="standfirst">Female students are discovering that climbing rewards agility and strategy, breaking the stereotype that it's all about strength.</p>
+        <div class="byline">By Sirui Zhong</div>
+    </div>
+
+    <div class="article-body">
+        <p class="drop-cap">Every weekend, as I step into the sports hall at Xi'an Jiaotong-Liverpool University, I can always spot a crowd, gazing upwards. On a climbing wall, some figures battle their way up, working to conquer the holds. Others stay close to the wall, pausing briefly to gather strength; yet others slip, descending reluctantly with their ropes.</p>
+
+        <figure>
+            <img src="writing3/writing3_img01.jpg" alt="A student climbs the wall at XJTLU">
+            <figcaption>A student climbs the wall in the Sports Centre hall at Xi'an Jiaotong-Liverpool University. Photo courtesy of XJTLU Student Engagement.</figcaption>
+        </figure>
+
+        <p>This scene is part of a growing trend across China. With the influence of the Olympics and social media, climbing gyms have proliferated around the world, drawing more and more people to this once niche sport.</p>
+
+        <p class="pull-quote">Climbing, often referred to as "ballet on the cliffs," is a sport that embodies both strength and agility.</p>
+
+        <p>It has three major types of competition: speed climbing, difficulty climbing, and bouldering. Speed climbing estimates how fast an athlete can ascend a fixed route. Difficulty climbing focuses on endurance and technical skills, as climbers aim to reach the highest point on a long, challenging wall. Bouldering is about climbing on lower walls without ropes, emphasizing strength, balance, and problem-solving ability.</p>
+
+        <p>Rock climbing was not officially included as an Olympic sport until 2020. Following its debut at the Tokyo Games that year, it began to receive global spotlight. However, its history stretches back to the dawn of human civilization. Since that time, the act of climbing has been integral to survival.</p>
+
+        <p>In ancient times, our primate ancestors climbed steep cliffs to escape predators and collect wild fruits to ease their hunger. Back then, climbing was not a "sport," but rather a desperate action driven by instincts.</p>
+
+        <p>The earliest documented human rock climbing dates to 1492, when King Charles VIII of France ordered subordinates to climb a 304-metre limestone tower. Armed with hooks and ladders, they reached the summit, leaving the first recorded account of an equipped climb. In 1974, climbing became a formal international competitive sport, marking the birth of modern rock climbing.</p>
+
+        <h2 class="subheading">Onto the Wall</h2>
+
+        <p>As rock climbing surges in popularity among Chinese youth, indoor gyms have become new social hubs. On July 21, 2025, at the Suzhou Koala Rock Climbing Gym, Susu Wang, a Year 3 student from Soochow University, was poised on the wall, her gaze fixed on the next anchor.</p>
+
+        <p>After coming down, she explained to me her focus: "I didn't finish one challenging route last time, so I'm going to try to reach the summit today."</p>
+
+        <figure>
+            <img src="writing3/writing3_img02.jpg" alt="Susu Wang at the climbing gym">
+            <figcaption>Susu Wang climbs a route at the Koala Rock Climbing Gym, Suzhou. Photo by Sirui Zhong.</figcaption>
+        </figure>
+
+        <p>Wang first tried climbing in high school, and has continued since then throughout her college life.</p>
+
+        <p>"When I first watched bouldering videos on Douyin, I thought it was cool and exciting. So one day, after school, on a whim, I rushed to the nearby climbing gym," Wang recalled.</p>
+
+        <p>As more and more people engage in rock climbing, women have made up a significant portion among these climbers.</p>
+
+        <p class="pull-quote">According to the 2023 China Climbing Industry Analysis Report, the number of female climbers has steadily increased over the past five years. By 2023, women accounted for 49.4% of all climbers.</p>
+
+        <p>The female rock climbers who shine on the sports field are the strongest spark igniting the nationwide climbing craze.</p>
+
+        <p>Lijuan Deng, a rising star born in the new millennium, claimed the silver medal in the women's speed climbing event at the 2024 Paris Olympics. Zhilu Luo secured the silver in the women's bouldering competition at the 2022 Asian Climbing Championships. Yuetong Zhang earned the silver medal in the women's bouldering event at the 15th National Games of China.</p>
+
+        <p>Rock climbing, a sport once dominated by men, appears to be equally accessible to women now.</p>
+
+        <h2 class="subheading">Climb Their Way Up</h2>
+
+        <p>"For some far-off holds, a male with long armspread might easily reach them, then pull himself straight up effortlessly," said Zihan Shen, an enthusiast of difficult climbing. Shen is a third year student from Nanjing University of Finance and Economics.</p>
+
+        <p>"But a female climber has to come up with a different approach because her arms are shorter," she explained, "We may have to spend more steps instead of doing it in one move."</p>
+
+        <p>Shen told me that at a climbing competition, she came in second place, narrowly lost to a man. "My armspread cost precious seconds," she said.</p>
+
+        <p>Besides armspread, strength is another challenge female climbers have to cope with.</p>
+
+        <p>After a bouldering session, Yitong Chen, a postgraduate student from Nanjing Audit University, sat with me on the mat. "The first time I climbed, my forearms were extremely sore," she said, laughing and clenching her fists, "I couldn't even make a fist the next day."</p>
+
+        <p>A 2001 study conducted by the University of Glasgow found that women have lower shoulder girdle strength and endurance compared to men. This physiological feature gives them a disadvantage in upper-body power. However, women demonstrated greater flexibility and mobility, which enables them to master climbing techniques more effectively.</p>
+
+        <p>Yang Chen, a physical instructor at XJTLU, shared that in his climbing classes, female students often perform better than their male counterparts.</p>
+
+        <figure>
+            <img src="writing3/writing3_img03.jpg" alt="Female student on the wall at XJTLU">
+            <figcaption>A female student scales the wall in the Sports Centre hall at XJTLU. Photo by Sirui Zhong.</figcaption>
+        </figure>
+
+        <p>Chen attributed female climbers' performance to key physical differences. Benefiting from a lighter body weight, some women can feel the upward force of the safety rope more noticeably than men. A better control of balance and agility compensates for the lack of absolute strength.</p>
+
+        <p>"Muscle strength can always be improved through training," said Chen, "We have many specific training methods, like pull-ups, weighted forward bends, and so on."</p>
+
+        <figure>
+            <img src="writing3/writing3_img04.jpg" alt="Yang Chen helps a student">
+            <figcaption>Yang Chen helps his student reach a hold. Photo by Sirui Zhong.</figcaption>
+        </figure>
+
+        <h2 class="subheading">Strength Beyond the Wall</h2>
+
+        <p>"When I climb, I put my phone aside, and totally focus on the route," said Shen. Wang echoed this sentiment: "I like starting from a new line and overcoming parts I can't get past. All I think about is getting through the route and achieving success."</p>
+
+        <p class="pull-quote">Besides concentration, they both suggested that rock climbing requires more brainpower than other sports.</p>
+
+        <p>Climbers must first "read" the route on the wall, mentally planning their moves, such as where to place the foot, which holds to reach, and when to shift the weight. This mental rehearsal, known as "route reading," is particularly important in rock climbing.</p>
+
+        <p>"It's very essential, especially in bouldering," said Wang, "As a beginner, I often neglected route reading. This not only left me unsure about my next move but also wasted energy and time."</p>
+
+        <p>After watching instructional videos, and practice, Wang found the method that worked best for her. She used large holds as checkpoints to break a route into sections, which helped her pace each segment. If she felt tired, she would stand on those large holds to catch her breath for a few seconds.</p>
+
+        <p>Perhaps this is what climbers find so rewarding. Falling down, shaking it off, sighing, and trying again. The wall is always there, waiting to be conquered.</p>
+    </div>
+
+    <div class="article-footer">
+        <div class="footer-ornament">◆ ◇ ◆</div>
+    </div>
+</body>
+</html>

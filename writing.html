@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随笔 | 在西浦读书是一种什么体验</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Noto Serif SC', 'Songti SC', serif;
+            background: #faf6f0;
+            color: #2d2a26;
+            line-height: 2;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background:
+                radial-gradient(ellipse at 10% 20%, rgba(212,184,150,0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 90% 80%, rgba(180,160,130,0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c4a882' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .back-link {
+            position: fixed;
+            top: 24px;
+            left: 24px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #a08060;
+            text-decoration: none;
+            background: rgba(250,246,240,0.92);
+            padding: 8px 16px;
+            border-radius: 20px;
+            backdrop-filter: blur(8px);
+            transition: color .2s, transform .2s;
+            z-index: 100;
+            border: 1px solid rgba(200,175,140,0.2);
+        }
+        .back-link:hover { color: #5a4a3a; transform: translateY(-1px); }
+
+        .article-header {
+            position: relative;
+            z-index: 1;
+            padding: 100px 20px 50px;
+            text-align: center;
+            border-bottom: 1px solid rgba(200,175,140,0.2);
+        }
+        .section-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #b08050;
+            margin-bottom: 20px;
+        }
+        .article-header h1 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #2d2a26;
+            letter-spacing: 1px;
+        }
+        .standfirst {
+            font-size: 15px;
+            font-style: italic;
+            color: #6a5a4a;
+            max-width: 480px;
+            margin: 20px auto 0;
+            line-height: 1.8;
+        }
+
+        .article-body {
+            position: relative;
+            z-index: 1;
+            max-width: 660px;
+            margin: 50px auto 0;
+            padding: 50px 60px 100px;
+            border-left: 1px solid rgba(196,160,112,0.12);
+            border-right: 1px solid rgba(196,160,112,0.12);
+        }
+
+        .section {
+            margin-bottom: 52px;
+        }
+        .section-number {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            color: #b08050;
+            text-align: center;
+            margin-bottom: 28px;
+            letter-spacing: 4px;
+        }
+        .section p {
+            font-size: 16.5px;
+            line-height: 2.1;
+            margin-bottom: 18px;
+            color: #3a3530;
+            text-align: justify;
+        }
+        .section .quote {
+            font-style: italic;
+            color: #6a5a4a;
+            border-left: 3px solid #c4a070;
+            padding-left: 18px;
+            margin: 28px 0;
+            font-size: 16px;
+            line-height: 1.9;
+        }
+        .section figure {
+            margin: 32px -10px;
+        }
+        .section figure img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .section figure.fig-small {
+            margin: 32px auto;
+            width: 70%;
+        }
+        .section figure figcaption {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            color: #aaa;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .drop-cap::first-letter {
+            font-size: 3.2em;
+            float: left;
+            line-height: 0.85;
+            margin-right: 8px;
+            margin-top: 6px;
+            color: #b08050;
+            font-weight: 700;
+        }
+
+        .article-footer {
+            text-align: center;
+            padding: 40px 20px 80px;
+            position: relative;
+            z-index: 1;
+        }
+        .footer-ornament {
+            font-size: 18px;
+            color: #c4a070;
+            letter-spacing: 8px;
+        }
+
+        @media(max-width: 600px) {
+            .article-header { padding: 70px 16px 40px; }
+            .article-header h1 { font-size: 24px; }
+            .article-body { padding: 30px 24px 80px; }
+            .section p { font-size: 15.5px; }
+            .section figure.fig-small { width: 85%; }
+        }
+    </style>
+</head>
+<body>
+    <a class="back-link" href="index.html?show=writing">← 返回作品列表</a>
+
+    <div class="article-header">
+        <div class="section-label">随笔 · Personal Essay</div>
+        <h1>在西浦读书是一种什么体验</h1>
+        <p class="standfirst">一个西浦学生在世俗目光与自我个性之间的徘徊与博弈</p>
+    </div>
+
+    <div class="article-body">
+        <div class="section">
+            <div class="section-number">01</div>
+            <p class="drop-cap">高考查分前，妈妈和我说："如果考得不好，就去西浦吧。" 我笑着打趣："啊~那我考得也太不好了吧。"一语成谶。</p>
+            <p>在查分之前，我对这所传统高考赛道之外的学校知之甚少。对于一个执着于考上985、211的江苏考生而言，西浦高昂的学费和在江苏略显惨淡的录取分数线，已经让我在潜意识中形成了对浦子"不学无术""纨绔子弟聚集地"的刻板印象。也正基于此，这篇文章更像是一个西浦学生在世俗目光与自我个性之间的徘徊与博弈。</p>
+        </div>
+
+        <div class="section">
+            <div class="section-number">02</div>
+            <p>西浦带给我的第一次震撼，发生在开学前的暑假。我在西浦的公众号上刷到了一条学姐写的推文，里面附了这样一张照片。</p>
+            <figure>
+                <img src="writing/writing1_img01.jpg" alt="老师跪着给学生讲题">
+            </figure>
+            <p>或许"跪"这个动作在西方并没有太多特殊含义。但我是一个刚刚结束高考的高中生。我想到高中数以万计的习题、每周日要返校考试的痛苦，以及老师对普通班学生和好班学生的差别对待。</p>
+            <p class="quote">"少见黑曰黑，多见黑曰白。"</p>
+            <p>一个老师竟然会跪着给学生讲题。看到照片的时候，内心尘封已久的对平等的渴望，连带着一丝辛酸破土而出。我开始期待在西浦的生活——我希望自己能在以学生为中心，而非升学率云云的学校度过四年。</p>
+        </div>
+
+        <div class="section">
+            <div class="section-number">03</div>
+            <p>进入西浦后，情况确实和我预想的大差不差。</p>
+            <p>这里有五颜六色的头发、随处可见的欧美妆容以及稍显暴露的穿搭。其实类似的打扮每个学校都有，但西浦似乎尤其多。为什么？</p>
+            <p>席酉民，西浦的校长，一个学生可以加他微信的校长，曾经发过这样一条朋友圈。</p>
+            <figure>
+                <img src="writing/writing1_img02.jpg" alt="席酉民校长朋友圈">
+            </figure>
+            <p>花花绿绿的发色，或许是别人眼中的离经叛道。但席校的配文是：西浦色彩。</p>
+            <p>他在鼓励他的孩子们追求热烈的青春，也在不断提醒我：所谓"另类"，指的不是人，而是人的眼光。"Don't judge a book by its cover"，一句从小学就在学的俚语，碰到了最应该被学以致用的场景。如果我不曾尊重理解他们的选择，只是因为他们的装扮与传统的教育理念不符就下意识地排斥、甚至贬低，这算不算一种暴力？</p>
+        </div>
+
+        <div class="section">
+            <div class="section-number">04</div>
+            <p>浦子给我的第二个震撼是在开学典礼上。新生代表上台做全英文演讲，一开口就是纯正的美音。"卧槽"，坐在我后面的男生脱口而出。</p>
+            <p>无独有偶吧，和我一起上英语课的同学也都是大佬：有雅思7.5的；有打了三年英辩让我在辩论赛躺赢的；有口语好听到让我拿手机偷偷录她的发言的……其实他们上课都不怎么听，摆烂嘛，谁都会，但他们又不是真的烂。</p>
+            <p>这一学期，我的直观感受是：西浦的学生都在很坚定地做自己热爱的事。</p>
+            <p>大三的学长创业大起大落，有过在金鸡湖商业圈开工作室的鲜衣怒马，也经历过资金链断裂的衰散颓败。不过听老师说，他的公司目前市值上百万。还有曾经报名去听的新媒体讲座，主讲人竟然是在新闻社和我一起做项目的学姐——原来她的视频有那么多播放量，原来她和那么多品牌有过合作……</p>
+            <figure>
+                <img src="writing/writing1_img03.jpg" alt="">
+            </figure>
+            <p>不可否认，西浦也有硬伤。我好像很少在学校里看见看书的人；也很少在公交车上听到我们学校的学生谈论除八卦和妆发以外的话题。</p>
+        </div>
+
+        <div class="section">
+            <div class="section-number">05</div>
+            <p>无论如何，西浦教会了我很多，尤其是不用太在意别人的眼光。</p>
+            <p>我一个用中文分享提案都会脸红的女生，在两个月之后已经可以当着很多人的面用英语问老师学术写作上的问题了。</p>
+            <p>如果问我，会向西浦潮男潮女的方向靠拢吗？不会，我还是比较欣赏自己现在的样子，但是我喜欢他们敢于展现自己的勇气。</p>
+            <figure class="fig-small">
+                <img src="writing/writing1_img04.jpg" alt="">
+            </figure>
+        </div>
+    </div>
+
+    <div class="article-footer">
+        <div class="footer-ornament">◆ ◇ ◆</div>
+    </div>
+</body>
+</html>

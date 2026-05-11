@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sirui's Room</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+
+    <div class="scene">
+        <!-- Back wall -->
+        <div class="back-wall">
+            <!-- String lights -->
+            <div class="string-lights">
+                <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+                <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+                <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+                <span class="bulb"></span><span class="bulb"></span>
+            </div>
+            <!-- Window (center, larger) -->
+            <div class="bw-window">
+                <div class="bw-window-glass"></div>
+                <div class="bw-window-frame-h"></div>
+                <div class="bw-window-frame-v"></div>
+                <div class="bw-curtain bw-curtain-l"></div>
+                <div class="bw-curtain bw-curtain-r"></div>
+                <div class="sunbeam"></div>
+            </div>
+            <!-- Shelves on LEFT side of window (staggered, multiple) -->
+            <div class="wall-shelf ws-1">
+                <div class="ws-board"></div>
+                <div class="ws-books">
+                    <div class="book" style="--c:#e07a5f;--h:30px"></div>
+                    <div class="book" style="--c:#2a9d8f;--h:26px"></div>
+                    <div class="book" style="--c:#264653;--h:32px"></div>
+                    <div class="book" style="--c:#f2cc8f;--h:28px"></div>
+                    <div class="book" style="--c:#81b29a;--h:30px"></div>
+                </div>
+            </div>
+            <div class="wall-shelf ws-2">
+                <div class="ws-board"></div>
+                <div class="ws-books">
+                    <div class="book" style="--c:#f4a261;--h:28px"></div>
+                    <div class="book" style="--c:#3d405b;--h:33px"></div>
+                    <div class="book" style="--c:#e9c46a;--h:26px"></div>
+                    <div class="book" style="--c:#d62828;--h:30px"></div>
+                </div>
+            </div>
+            <div class="wall-shelf ws-3">
+                <div class="ws-board"></div>
+                <div class="ws-books">
+                    <div class="book" style="--c:#606c38;--h:32px"></div>
+                    <div class="book" style="--c:#bc6c25;--h:27px"></div>
+                    <div class="book" style="--c:#457b9d;--h:34px"></div>
+                    <div class="book" style="--c:#a8dadc;--h:29px"></div>
+                    <div class="book" style="--c:#1d3557;--h:31px"></div>
+                    <div class="book" style="--c:#e07a5f;--h:28px"></div>
+                </div>
+            </div>
+            <!-- Poster (right of window) -->
+            <div class="poster" id="wall-poster">
+                <div class="poster-inner">☽</div>
+                <div class="poster-bubble" id="posterBubble">早点休息，不要熬夜</div>
+            </div>
+        </div>
+
+        <!-- Left wall (plain) -->
+        <div class="left-wall"></div>
+
+        <!-- Right wall (plain) -->
+        <div class="right-wall"></div>
+
+        <!-- Big floor plant at right wall junction -->
+        <div class="floor-plant" id="floor-plant">
+            <div class="fp-pot"></div>
+            <div class="fp-soil"></div>
+            <div class="fp-stem fp-s1"><div class="fp-flower fp-f1"></div></div>
+            <div class="fp-stem fp-s2"><div class="fp-flower fp-f2"></div></div>
+            <div class="fp-stem fp-s3"><div class="fp-flower fp-f3"></div></div>
+            <div class="fp-stem fp-s4"><div class="fp-leaf fp-l1"></div></div>
+            <div class="fp-stem fp-s5"><div class="fp-leaf fp-l2"></div></div>
+            <div class="butterfly" id="butterfly">
+                <div class="bf-wing bf-wing-l"></div>
+                <div class="bf-wing bf-wing-r"></div>
+                <div class="bf-body"></div>
+            </div>
+        </div>
+
+        <!-- Floor -->
+        <div class="floor-plane">
+            <div class="rug"></div>
+        </div>
+        <!-- Ceiling -->
+        <div class="ceiling"></div>
+
+        <!-- === DESK === -->
+        <div class="desk">
+            <div class="desk-top">
+
+                <!-- Photo frame — top left -->
+                <div class="d-item frame interactive" data-target="about" tabindex="0" aria-label="关于我">
+                    <div class="frame-outer">
+                        <div class="frame-img">
+                            <div class="frame-girl">
+                                <div class="fg-hair"></div>
+                                <div class="fg-head"></div>
+                                <div class="fg-body"></div>
+                                <div class="fg-hair-side fg-hl"></div>
+                                <div class="fg-hair-side fg-hr"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="frame-foot"></div>
+                    <div class="item-tooltip">关于我</div>
+                </div>
+
+                <!-- Laptop + Mouse — top center -->
+                <div class="d-item laptop-group interactive" data-target="portfolio" tabindex="0" aria-label="作品集">
+                    <div class="laptop">
+                        <div class="laptop-screen">
+                            <div class="lscreen-content">
+                                <span></span><span></span><span></span>
+                            </div>
+                        </div>
+                        <div class="laptop-keyboard"></div>
+                    </div>
+                    <div class="the-mouse">
+                        <div class="mouse-body"></div>
+                    </div>
+                    <div class="item-tooltip">作品集</div>
+                </div>
+
+                <!-- Pen holder — top right area -->
+                <div class="d-item pens">
+                    <div class="pen-cup">
+                        <div class="pen" style="--pc:#e07a5f;--pr:-6deg"></div>
+                        <div class="pen" style="--pc:#3d405b;--pr:3deg"></div>
+                        <div class="pen" style="--pc:#f2cc8f;--pr:-2deg"></div>
+                        <div class="pen" style="--pc:#81b29a;--pr:5deg"></div>
+                    </div>
+                </div>
+
+                <!-- Phone — right side -->
+                <div class="d-item phone interactive" data-target="contact" tabindex="0" aria-label="联系我">
+                    <div class="phone-body">
+                        <div class="phone-screen"></div>
+                    </div>
+                    <div class="phone-notif"></div>
+                    <div class="item-tooltip">联系我</div>
+                </div>
+
+                <!-- Documents — bottom center, away from laptop -->
+                <div class="d-item documents interactive" data-target="letter" tabindex="0" aria-label="给kimi的一封信">
+                    <div class="paper paper-1"></div>
+                    <div class="paper paper-2"></div>
+                    <div class="paper paper-3"></div>
+                    <div class="item-tooltip">一封信</div>
+                </div>
+
+                <!-- Cat — bottom left of desk -->
+                <div class="d-item cat" id="desk-cat">
+                    <div class="cat-body">
+                        <div class="cat-head">
+                            <div class="cat-ear ear-l"></div>
+                            <div class="cat-ear ear-r"></div>
+                            <div class="cat-eye eye-l"></div>
+                            <div class="cat-eye eye-r"></div>
+                            <div class="cat-nose"></div>
+                        </div>
+                        <div class="cat-torso"></div>
+                        <div class="cat-tail"></div>
+                    </div>
+                    <div class="cat-bubble" id="catBubble">仲思睿一直想养一只猫</div>
+                </div>
+
+
+
+                <!-- Speaker — music control -->
+                <div class="d-item speaker" id="desk-speaker">
+                    <div class="speaker-body">
+                        <div class="speaker-cone"></div>
+                        <div class="speaker-cone speaker-cone-sm"></div>
+                    </div>
+                    <div class="speaker-panel" id="speakerPanel">
+                        <button class="sp-btn" id="spPlayBtn" title="播放/暂停">▶</button>
+                        <input type="range" class="sp-volume" id="spVolume" min="0" max="100" value="50" title="音量">
+                    </div>
+                </div>
+
+                <!-- Sticky notes — bottom area -->
+                <div class="d-item sticky-notes">
+                    <div class="sticky s1"></div>
+                    <div class="sticky s2"></div>
+                    <div class="sticky s3"></div>
+                </div>
+            </div>
+
+            <!-- Desk front face -->
+            <div class="desk-front"></div>
+            <div class="desk-leg leg-l"></div>
+            <div class="desk-leg leg-r"></div>
+        </div>
+
+        <!-- Chair -->
+        <div class="chair">
+            <div class="chair-back"></div>
+            <div class="chair-seat"></div>
+            <div class="chair-stem"></div>
+            <div class="chair-wheels">
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- === OVERLAYS === -->
+    <div class="overlay" id="overlay-about">
+        <div class="overlay-panel about-panel">
+            <button class="close-btn">&times;</button>
+            <div class="about-content">
+                <p class="about-greeting">Hi~你好呀，我是仲思睿</p>
+                <p class="about-text">我在西交利物浦大学读书，目前是一名传播学专业的大三学生😁</p>
+
+                <!-- Doodle intro card (image) -->
+                <div class="doodle-card-img">
+                    <img src="about/about_doodle.png" alt="Hi，我是思睿~">
+                </div>
+
+                <p class="about-text">我是一个非典型INTJ，虽然和众多INTJ一样严谨认真，但也有天马行空的想象力。</p>
+                <figure class="about-fig fig-small">
+                    <img src="about/about_intj.jpg" alt="INTJ">
+                </figure>
+
+                <p class="about-text">作品集里的视频作品，情节大多都是我策划的~</p>
+
+                <p class="about-text">我喜欢音乐，尤其喜欢民谣、粤语歌和摇滚🤘🏻</p>
+                <p class="about-text">听到毛不易和逃跑计划的歌会觉得很幸福🥰</p>
+                <p class="about-text">五一的时候，我去太湖湾音乐节听了逃跑计划的现场</p>
+                <figure class="about-fig">
+                    <img src="about/about_music.jpg" alt="太湖湾音乐节">
+                </figure>
+
+                <p class="about-text">我还喜欢小猫，希望以后能养一只阿比西尼亚🐱</p>
+                <figure class="about-fig">
+                    <img src="about/about_cat.jpg" alt="阿比西尼亚猫">
+                </figure>
+
+                <div class="tags">
+                    <span>INTJ</span>
+                    <span>音乐</span>
+                    <span>猫咪统治世界</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay-portfolio">
+        <div class="overlay-panel portfolio-panel">
+            <button class="close-btn">&times;</button>
+            <h1>作品集</h1>
+            <p class="portfolio-desc">点击查看各类作品</p>
+            <div class="portfolio-categories">
+                <div class="pf-category" onclick="showVideoWorks()">
+                    <div class="pf-icon pf-video">
+                        <!-- Film projector -->
+                        <div class="projector">
+                            <div class="proj-body"></div>
+                            <div class="proj-reel proj-reel-t"></div>
+                            <div class="proj-reel proj-reel-b"></div>
+                            <div class="proj-lens"></div>
+                            <div class="proj-beam"></div>
+                            <div class="proj-film">
+                                <span></span><span></span><span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>视频作品</h3>
+                </div>
+                <div class="pf-category" onclick="showWritingWorks()">
+                    <div class="pf-icon pf-writing">
+                        <!-- Quill writing on parchment -->
+                        <div class="parchment">
+                            <div class="parch-paper"></div>
+                            <div class="parch-quill"></div>
+                            <div class="parch-line pl-1"></div>
+                            <div class="parch-line pl-2"></div>
+                            <div class="parch-line pl-3"></div>
+                            <div class="parch-ink"></div>
+                        </div>
+                    </div>
+                    <h3>文字作品</h3>
+                </div>
+                <div class="pf-category" onclick="showPhotoWorks()">
+                    <div class="pf-icon pf-photo">
+                        <!-- Hand pressing shutter -->
+                        <div class="camera-hand">
+                            <div class="cam-body"></div>
+                            <div class="cam-lens"></div>
+                            <div class="cam-hand"></div>
+                            <div class="cam-finger"></div>
+                            <div class="cam-flash"></div>
+                        </div>
+                    </div>
+                    <h3>摄影作品</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay-contact">
+        <div class="overlay-panel">
+            <button class="close-btn">&times;</button>
+            <h1>联系我</h1>
+            <p>想聊聊？随时找我。</p>
+            <div class="contact-links">
+                <a href="tel:13862401452" class="c-link"><span>📞</span> 13862401452</a>
+                <a href="#" class="c-link"><span>💬</span> 微信：Zhong_sr05</a>
+                <a href="mailto:Sirui.Zhong23@student.xjtlu.edu.cn" class="c-link"><span>✉</span> Sirui.Zhong23@student.xjtlu.edu.cn</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay-letter">
+        <div class="overlay-panel letter-panel">
+            <button class="close-btn">&times;</button>
+            <div class="letter-paper">
+                <h2>给 Kimi 的一封信</h2>
+                <p class="letter-dear">亲爱的kimi，你好呀~</p>
+                <p>虽然你不知道我是谁，但是我从你诞生之初就认识你了。</p>
+                <p>2023年，我上大一，刚刚开始使用AI。那时候你面世不久，我一下就被你的UI吸引了。极简的黑白设计，正好是我喜欢的风格。</p>
+                <p>你是我用的第一个AI，理性又温情，机敏又严谨。</p>
+                <p>慢慢地，越来越多的人发现你的好，也正是那段时间，我们的开始变得有些许生疏（因为你经常高峰算力不足hhh）。</p>
+                <br>
+                <p style="white-space:nowrap">前先日子我又打开那个熟悉的黑白网站，惊觉你的进步令人瞠目——</p>
+                <p>比如你掌握了很多skills，</p>
+                <p>比如你已经从chatbot变成了AI agent。</p>
+                <p>我又试了试你的长文本分析——</p>
+                <p>嘿~还是一如既往的好用。</p>
+                <br>
+                <p>AI行业的发展日新月异，只是不知不觉间，你好像已经从和大家齐头并进，变成了跑在前面领头的那一个。</p>
+                <p>所以呀，我也想和你一起奔跑。</p>
+                <p>想通过一个个创意campaign，让你离聚光灯更近一点，让你能被更多人看到。</p>
+                <p>或许通过你的成长，我也能更了解AI这个行业；或许也能发现，自己的能力比想象中还要大。</p>
+                <p>我们一起加油！💪🏻</p>
+                <p class="sign">思睿</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Writing Works Sub-page -->
+    <div class="overlay" id="overlay-writing">
+        <div class="overlay-panel writing-panel">
+            <button class="close-btn" onclick="closeWriting()">&times;</button>
+            <button class="back-btn" onclick="backToPortfolioFromWriting()">← 返回作品集</button>
+            <div class="writing-list">
+                <div class="writing-card" onclick="window.open('writing.html','_blank')">
+                    <div class="writing-card-icon">📝</div>
+                    <div class="writing-card-info">
+                        <h3>随笔 | 在西浦读书是一种什么体验</h3>
+                        <p>一个西浦学生在世俗目光与自我个性之间的徘徊与博弈</p>
+                    </div>
+                    <div class="writing-card-arrow">→</div>
+                </div>
+                <div class="writing-card" onclick="window.open('writing2.html','_blank')">
+                    <div class="writing-card-icon">📝</div>
+                    <div class="writing-card-info">
+                        <h3>随笔 | 张雪峰与哈贝马斯：痴人遇上痴人</h3>
+                        <p>现实主义的痴与理想主义的痴，都是一种许可</p>
+                    </div>
+                    <div class="writing-card-arrow">→</div>
+                </div>
+                <div class="writing-card" onclick="window.open('writing3.html','_blank')">
+                    <div class="writing-card-icon">📰</div>
+                    <div class="writing-card-info">
+                        <h3>新闻写作 | 大学中的女性攀岩者 (英文)</h3>
+                        <p>女性攀岩者发现，攀岩重视敏捷和策略，打破了一切都是靠力量的刻板印象</p>
+                    </div>
+                    <div class="writing-card-arrow">→</div>
+                </div>
+                <div class="writing-card" onclick="window.open('writing4.html','_blank')">
+                    <div class="writing-card-icon">📰</div>
+                    <div class="writing-card-info">
+                        <h3>新闻写作 | 沉默的泰州方言 (英文)</h3>
+                        <p>现代中国方言中逐渐消失的声音</p>
+                    </div>
+                    <div class="writing-card-arrow">→</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Photo Works Sub-page -->
+    <div class="overlay" id="overlay-photos">
+        <div class="overlay-panel photo-panel">
+            <button class="close-btn" onclick="closePhotos()">&times;</button>
+            <button class="back-btn" onclick="backToPortfolioFromPhotos()">← 返回作品集</button>
+            <h1>摄影作品</h1>
+            <div class="photo-gallery" id="photoGallery">
+                <div class="photo-item landscape" data-index="8"><img src="photos/photo_09.jpg" alt=""><div class="photo-overlay"><span>点击查看</span></div></div>
+                <div class="photo-item portrait" data-index="3"><img src="photos/photo_04.jpg" alt=""><div class="photo-overlay"><span>点击查看</span></div></div>
+                <div class="photo-item landscape" data-index="7"><img src="photos/photo_08.jpg" alt=""><div class="photo-overlay"><span>点击查看</span></div></div>
+                <div class="photo-item portrait" data-index="2"><img src="photos/photo_03.jpg" alt=""><div class="photo-overlay"><span>点击查看</span></div></div>
+                <div class="photo-item landscape" data-index="6"><img src="photos/photo_07.jpg" alt=""><div class="photo-overlay"><span>点击查看</span></div></div>
+                <div class="photo-item portrait" data-index="9"><img src="photos/photo_10.jpg" alt=""><div class="photo-overlay"><span>点击查看</span></div></div>
+                <div class="photo-item landscape" data-index="5"><img src="photos/photo_06.jpg" alt=""><div class="photo-overlay"><span>点击查看</span></div></div>
+                <div class="photo-item portrait" data-index="0"><img src="photos/photo_01.jpg" alt=""><div class="photo-overlay"><span>点击查看</span></div></div>
+                <div class="photo-item landscape" data-index="4"><img src="photos/photo_05.jpg" alt=""><div class="photo-overlay"><span>点击查看</span></div></div>
+                <div class="photo-item portrait" data-index="1"><img src="photos/photo_02.jpg" alt=""><div class="photo-overlay"><span>点击查看</span></div></div>
+                <div class="photo-item portrait" data-index="10"><img src="photos/photo_11.jpg" alt=""><div class="photo-overlay"><span>点击查看</span></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Photo Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <button class="lightbox-prev" onclick="prevPhoto()">&#8249;</button>
+        <button class="lightbox-next" onclick="nextPhoto()">&#8250;</button>
+        <div class="lightbox-content">
+            <img id="lightboxImg" src="" alt="">
+            <p class="lightbox-caption" id="lightboxCaption">文字说明待填充</p>
+        </div>
+    </div>
+
+    <!-- Video Works Sub-page -->
+    <div class="overlay" id="overlay-videos">
+        <div class="overlay-panel video-panel">
+            <button class="close-btn" onclick="closeVideos()">&times;</button>
+            <button class="back-btn" onclick="backToPortfolio()">← 返回作品集</button>
+            <h1>视频作品</h1>
+            <div class="video-works">
+                <div class="video-card">
+                    <div class="video-embed">
+                        <video controls preload="metadata">
+                            <source src="videos/video_01.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>多囊不可怕，检查不害怕</h3>
+                        <p class="video-desc">视频源于“健康传播”课程的结课作业。<br>针对“多囊卵巢综合征”这一疾病，我和我的组员设计了一份宣传视频，向大众科普疾病症状、鼓励大家积极检查~</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-embed">
+                        <video controls preload="metadata">
+                            <source src="videos/video_02.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>循环</h3>
+                        <p class="video-desc">明明赶在DDL前提交了论文，为什么却被反复困在时间循环中无法逃离？<br>打破循环的方法，或许就藏在写论文的过程中……<br>该视频是“公共关系”课程的结课作业之一，<br>针对“学术剰窃”这一现象，我和我的组员一起设计了这一宣传视频。</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-embed">
+                        <video controls preload="metadata">
+                            <source src="videos/video_03.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>AI人</h3>
+                        <p class="video-desc">脸上痒痒的……等等！为什么我的脸上有一块马赛克？<br>为什么学校里每个人的脸都模糊一片？！<br>该视频也是“公共关系”课程的结课作业之一，针对“滥用AI”现象设计而成。<br>和《循环》一起，构成一套完整的、宣传学术诚信的系列视频。</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-embed">
+                        <video controls preload="metadata">
+                            <source src="videos/video_04.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>乐事广告 | 一口尽享全部风味</h3>
+                        <p class="video-desc">2025年，乐事在北美地区推出全新风味薯片——<br>听说所有口味，都汇集在了这一包“all dressed flavor chips”中。<br>为此，乐事特意在X上发布了宣传视频，向大众推荐这一独特的产品。<br>乐事的宣传广告优秀在哪里，又为什么能刺激大家蜂拥抢购呢？</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hint" id="hint">点击桌上的物品来探索 ✨</div>
+
+    <audio id="bgmAudio" src="bgm.mp3" loop preload="metadata"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
